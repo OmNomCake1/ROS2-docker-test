@@ -1,0 +1,11 @@
+services:
+    ros2_dev:
+        image: ros2_dev_test
+        container_name: ros2_dev_test
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/root/test_ws
+        stdin_open: true
+        tty: true

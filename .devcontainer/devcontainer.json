@@ -1,0 +1,14 @@
+{
+    "name": "ros2-jazzy-devcontainer",
+
+    "dockerComposeFile": "../compose.yml",
+
+    "workspaceFolder": "/root/test_ws",
+
+    "service": "ros2_dev",
+
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+    }
+
+}
