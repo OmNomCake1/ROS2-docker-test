@@ -9,6 +9,17 @@
 
     "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
+    },
+
+    "customizations": {
+        "vscode": {
+        "extensions": [
+            "ms-python.python",
+            "ms-vscode.cpptools",
+            "ms-iot.vscode-ros",
+            "twxs.cmake"
+        ]
     }
+}
 
 }
