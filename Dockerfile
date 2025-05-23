@@ -1,6 +1,6 @@
 FROM ros:jazzy-ros-base
 
-WORKDIR /root/test_ws
+WORKDIR /root/ros2_docker_test
 
 COPY . .
 

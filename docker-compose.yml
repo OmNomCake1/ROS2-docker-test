@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         volumes:
-            - ./:/root/test_ws
+            - ./:/root/ros2_docker_test
 
         stdin_open: true
         tty: true
