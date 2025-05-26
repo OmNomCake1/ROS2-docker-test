@@ -5,9 +5,6 @@ WORKDIR /root/ros2_docker_test
 COPY . .
 
 RUN apt update && apt install -y \
-    ros-jazzy-rqt \
-    ros-jazzy-rqt-common-plugins \
-    ros-jazzy-turtlesim && \
     apt clean
     
 # Set up shell to source ROS since default is sh not bash
