@@ -4,8 +4,7 @@ WORKDIR /root/ros2_docker_test
 
 COPY . .
 
-RUN apt update && apt install -y \
-    apt clean
+RUN apt update
     
 # Set up shell to source ROS since default is sh not bash
 # source is a bash feature
