@@ -1,4 +1,5 @@
 // A simple publisher node which publishes to /count_topic at 2Hz a counter
+// This should be split up into .hpp interface and .cpp implementation but....
 // Written by Ryan Wong 
 
 // c standard library includes
