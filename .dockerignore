@@ -1,0 +1,7 @@
+# ROS2 workspace build artifacts
+ros2_ws/build
+ros2_ws/install
+ros2_ws/log
+
+# VSCode settings (optional to exclude)
+ros2_ws/src/.vscode/
