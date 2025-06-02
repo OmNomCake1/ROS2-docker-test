@@ -1,6 +1,6 @@
 # Sunswift Racing ROS2 Jazzy Docker Test
-THE DOCKER IMAGE IS CURRENTLY NOT BUILDING  
-This is due to GPG key errors. Devam and I are working on this, but most likely will have to wait until the official image is updated with the new keys.
+The current ros:jazzy-ros-base image has out of date GPG keys, so in the Dockerfile there is a temporary fix to this. Still follow the same instructions below to set up the development environment everything should still work.
+
 
 This is a practice environment to get comfortable with the Docker, Github, and ROS 2 development workflow using VS Code. Below are instructions on how to set up and start developing/playing around in a Ubuntu 24.04 environment with ROS 2 Jazzy already installed. It's a good idea to go through the [Jazzy tutorials](https://docs.ros.org/en/jazzy/Tutorials.html) once you have your environment set up.  
 
@@ -50,12 +50,9 @@ Also, install this **VS Code extension**:
 ---------------------------
 ### How it works
 1. > How does my code from github which I cloned to my **host** appear in the container?  
-
-If you look in the Dockerfile, it simply uses `ros:jazzy-ros-base` as the base image, which is a minimal Ubuntu 24.04 + important ROS 2 packages image. It then **copies** all the code from this repo (on the host) to the container filesystem at /root/ros2_docker_test.  
-
 2. > Why do code changes made IN the container still persist even after it shuts down?  
 
-In `docker-compose.yml`, there is a **bind mount** under *volumes*, which basically *mounts* this repository into the docker filesystem at /root/ros2_docker_test. Simply, a bind mount is a directory which is shared between the host and the container, reflecting changes in real time, both ways.
+In `docker-compose.yml`, there is a **bind mount** under *volumes*, which basically *mounts* this repository into the docker filesystem at /root/ros2_docker_test. Simply, a bind mount is a directory which is shared between the host and the container, reflecting changes in real time, both ways. If you look in the Dockerfile, it simply uses `ros:jazzy-ros-base` as the base image, which is a minimal Ubuntu 24.04 + important ROS 2 packages image. It then **mounts** all the code from this repo (on the host) to the container filesystem at /root/ros2_docker_test.  
 
 3. > Why do I not need to rebuild the image everytime I edit code?  
 
