@@ -44,6 +44,7 @@ Also, install this **VS Code extension**:
    - If you want, have a look at the simple publisher I wrote and soak in the glorious C++ syntax... To run this publisher node, run `colcon build --cmake-clean-cache` from `/root/ros2_docker_test/ros2_ws`, then run `source install/setup.bash` (you must do this after everytime you colcon build). Then run `ros2 run test_package minimal_cpp_publisher`. Observe the `std_msgs::msg::String` being published at 2Hz.
 6. In the real high-level repo, you would now edit your code once you're in the environment, then after finishing, close the remote environment. Finally, commit and push this code to github.  
    **→ But since we're not, don't bother commiting and pushing as I want to use this repo for my own testing LOL. (don’t worry, you can’t push anyway!)**  
+7. To get intellisense working, you must open VS Code in the `ros2_ws` directory. By default, the `ROS2-docker-test` directory is opened in VS Code when you open the container, so `cd ros2_ws` then `code .` and intellisense will work with c++, python, all your ROS packages.
 
 >Note when building, if you get timestamp errors you might have to run `colcon build --cmake-clean-cache`. This is because there are timestamp errors for file modification times due to the bind mount sharing files between host and container.
 
