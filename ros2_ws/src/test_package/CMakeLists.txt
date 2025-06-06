@@ -18,11 +18,16 @@ set(dependencies
   std_msgs
 )
 
-add_executable(minimal_cpp_publisher src/cpp_minimal_publisher.cpp)
-ament_target_dependencies(minimal_cpp_publisher ${dependencies})
+add_executable(message_publisher src/message_publisher.cpp)
+ament_target_dependencies(message_publisher ${dependencies})
+
+target_include_directories(message_publisher PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
 
 install(TARGETS
-  minimal_cpp_publisher
+  message_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 
