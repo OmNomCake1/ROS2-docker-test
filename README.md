@@ -41,16 +41,17 @@ Also, install this **VS Code extension**:
 5. I've already created a ROS workspace called `ros2_ws`, but feel free to delete it:  
    - `rm -rf ros2_ws`  
    - Then follow the [ROS 2 Jazzy tutorials](https://docs.ros.org/en/jazzy/Tutorials.html) to learn how to set up your own workspace and packages
-   - If you want, have a look at the simple publisher I wrote and soak in the glorious C++ syntax... To run this publisher node, run `colcon build --cmake-clean-cache` from `/root/ros2_docker_test/ros2_ws`, then run `source install/setup.bash` (you must do this after everytime you colcon build). Then run `ros2 run test_package minimal_cpp_publisher`. Observe the `std_msgs::msg::String` being published at 2Hz.
+   - If you want, have a look at the simple publisher I wrote and soak in the glorious C++ syntax... To run this publisher node, run `colcon build` from `/root/ros2_docker_test/ros2_ws`, then run `source install/setup.bash` (you must do this after everytime you colcon build). Then run `ros2 run test_package minimal_cpp_publisher`. Observe the `std_msgs::msg::String` being published at 2Hz.
 6. In the real high-level repo, you would now edit your code once you're in the environment, then after finishing, close the remote environment. Finally, commit and push this code to github.  
    **→ But since we're not, don't bother commiting and pushing as I want to use this repo for my own testing LOL. (don’t worry, you can’t push anyway!)**  
 7. To get intellisense working, you must open VS Code in the `ros2_ws` directory. By default, the `ROS2-docker-test` directory is opened in VS Code when you open the container, so `cd ros2_ws` then `code .` and intellisense will work with c++, python, all your ROS packages.
 
->Note when building, if you get timestamp errors you might have to run `colcon build --cmake-clean-cache`. This is because there are timestamp errors for file modification times due to the bind mount sharing files between host and container.
+> There used to be an error with out of date timestamps due to clock skew between the container and host machine. I fixed this by adding a postCreateCommand in devcontainer.json which updates the timestamps for all files in current directory as soon as the container is spun up.
+
 
 ---------------------------
 ### How it works
-1. > How does my code from github which I cloned to my **host** appear in the container?  
+1. > How does my code from github, which I cloned to my **host**, appear in the container?  
 2. > Why do code changes made IN the container still persist even after it shuts down?  
 
 In `docker-compose.yml`, there is a **bind mount** under *volumes*, which basically *mounts* this repository into the docker filesystem at /root/ros2_docker_test. Simply, a bind mount is a directory which is shared between the host and the container, reflecting changes in real time, both ways. If you look in the Dockerfile, it simply uses `ros:jazzy-ros-base` as the base image, which is a minimal Ubuntu 24.04 + important ROS 2 packages image. It then **mounts** all the code from this repo (on the host) to the container filesystem at /root/ros2_docker_test.  

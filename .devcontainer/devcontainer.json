@@ -22,6 +22,9 @@
                 "terminal.integrated.defaultProfile.linux": "bash"
             }
         }
-    }
+    },
+
+    "postCreateCommand": "find . -type f -exec touch {} +"
+
 
 }
