@@ -46,7 +46,7 @@ Also, install this **VS Code extension**:
    **→ But since we're not, don't bother commiting and pushing as I want to use this repo for my own testing LOL. (don’t worry, you can’t push anyway!)**  
 7. To get intellisense working, you must open VS Code in the `ros2_ws` directory. By default, the `ROS2-docker-test` directory is opened in VS Code when you open the container, so `cd ros2_ws` then `code .` and intellisense will work with c++, python, all your ROS packages.
 
-> There used to be an error with out of date timestamps due to clock skew between the container and host machine. I fixed this by adding a postCreateCommand in devcontainer.json which updates the timestamps for all files in current directory as soon as the container is spun up.
+> There is a warning message when you `colcon build` which says something about a clock skew. I think this is due to the bind mount and a slight clock skew between the host and the container. I've tried a bunch of stuff but can't fix this warning. However, I don't think it's a major issue as the build still completes and nodes run OK.
 
 
 ---------------------------
