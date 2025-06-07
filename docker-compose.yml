@@ -7,6 +7,6 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./:/root/ros2_docker_test
-
+        
         stdin_open: true
         tty: true
