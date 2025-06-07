@@ -24,8 +24,6 @@
         }
     },
 
-    "postCreateCommand": "find . -type f -exec touch {} +",
-
-
+    "postCreateCommand": "find . -type f -exec touch {} +"
 
 }

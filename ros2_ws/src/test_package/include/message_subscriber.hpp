@@ -10,8 +10,11 @@
 
 class MessageSubscriber : public rclcpp::Node {
 public:
-
+    MessageSubscriber();
+    void message_callback(const std_msgs::msg::String::SharedPtr msg);
 private:
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscriber_;
+    
 };
 
 #endif

@@ -21,13 +21,22 @@ set(dependencies
 add_executable(message_publisher src/message_publisher.cpp)
 ament_target_dependencies(message_publisher ${dependencies})
 
+add_executable(message_subscriber src/message_subscriber.cpp)
+ament_target_dependencies(message_subscriber ${dependencies})
+
 target_include_directories(message_publisher PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_include_directories(message_subscriber PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
 
 install(TARGETS
   message_publisher
+  message_subscriber
   DESTINATION lib/${PROJECT_NAME}
 )
 
