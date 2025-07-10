@@ -16,6 +16,7 @@ MessagePublisher::MessagePublisher() : Node("MessagePublisher"), count_{0} {
     
     // create wall timer
     timer_ = create_wall_timer(500ms, std::bind(&MessagePublisher::timerCallback, this));
+
 }
 
 void MessagePublisher::timerCallback() {

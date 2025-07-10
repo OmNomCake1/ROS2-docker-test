@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/root/ros2_docker_test/ros2_ws/src/test_package"
+    "cmake.sourceDirectory": "/root/ros2_docker_test/ros2_ws/src/test_package",
+    "ros.distro": "jazzy"
 }

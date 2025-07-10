@@ -14,7 +14,7 @@
                 "ms-python.python",
                 "ms-vscode.cpptools",
                 "ms-vscode.cmake-tools",
-                "ms-iot.vscode-ros",
+                "ranch-hand-robotics.rde-pack",
                 "twxs.cmake"
             ],
 

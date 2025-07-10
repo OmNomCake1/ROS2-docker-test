@@ -1,7 +1,4 @@
 # Sunswift Racing ROS2 Jazzy Docker Test
-The current ros:jazzy-ros-base image has out of date GPG keys, so in the Dockerfile there is a temporary fix to this. Still follow the same instructions below to set up the development environment everything should still work.
-
-
 This is a practice environment to get comfortable with the Docker, Github, and ROS 2 development workflow using VS Code. Below are instructions on how to set up and start developing/playing around in a Ubuntu 24.04 environment with ROS 2 Jazzy already installed. It's a good idea to go through the [Jazzy tutorials](https://docs.ros.org/en/jazzy/Tutorials.html) once you have your environment set up.  
 
 Made by Ryan Wong for the Sunswift embedded high-level software team.
